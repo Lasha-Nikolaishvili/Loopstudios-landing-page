@@ -1,0 +1,71 @@
+@use '../globals' as g;
+@use '../util/' as u;
+
+.header {
+    @include u.backround-photo(url('../images/mobile/image-hero.jpg'));
+    height: 100vh;
+    padding: 1rem;
+
+    &__title {
+        border: u.em(1.5) solid g.$white;
+        letter-spacing: u.em(1.5);
+        padding: .8em;
+        @include u.header-styles();
+        max-width: u.rem(600);
+    }
+
+    .navbar-toggler, .navbar-toggler:focus {
+        border: none;
+        box-shadow: none;
+    }
+
+    .navbar-toggler-icon {
+        background-image: url('../images/icon-hamburger.svg');
+    }
+    
+    .off-canvas {
+        background-color: g.$black;
+        width: 100vw;
+
+        .btn-close:focus {
+            box-shadow: none;
+        }
+
+        .nav-links li a{
+            @include u.header-styles();
+            
+            font-size: u.em(25);
+        }
+
+        @include u.breakpoint(large) {
+            .offcanvas-body {
+                justify-content: end;
+            }
+
+            .nav-links li a{
+                font-family: u.$alata;
+                font-size: u.em(16);
+                text-transform: capitalize;
+                
+                position: relative;
+                &::after {
+                    @include u.hover-underline();
+                }
+                
+                &:hover::after {
+                    width: u.em(25);
+                }
+                
+            }
+        }
+    }
+
+    @include u.breakpoint(large) {
+        & {
+            @include u.backround-photo(url('../images/desktop/image-hero.jpg'));
+        }
+
+        padding: 1rem 5rem;
+    }
+}
+

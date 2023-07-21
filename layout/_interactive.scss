@@ -1,0 +1,51 @@
+@use '../globals' as g;
+@use '../util/' as u;
+
+.interactive {
+    position: relative;
+    text-align: center;
+    padding: 1rem;
+    
+    &__content {
+        display: inline-block;
+        
+    }
+
+    &__img {
+        @include u.breakpoint(large) {
+            content: url('../images/desktop/image-interactive.jpg');
+        }
+    }
+
+    &__body {
+        text-align: center;
+        background-color: g.$white;
+
+        &__title {
+            @include u.header-styles(g.$black, 600);
+            font-size: u.em(25);
+            letter-spacing: u.em(1.5);
+        }
+    
+        &__text {
+            font-family: u.$alata;
+            color: g.$very-dark-gray;
+        }
+
+        @include u.breakpoint(large) {
+            position: absolute;
+            top: 42%;
+            right: 5rem;
+            
+            text-align: center;
+            // border: 1px solid red;
+            width: u.em(500);
+            padding: u.em(40);
+        }
+    }
+
+    @include u.breakpoint(large) {
+        text-align: start;
+        padding: 2rem 5rem;
+    }
+}

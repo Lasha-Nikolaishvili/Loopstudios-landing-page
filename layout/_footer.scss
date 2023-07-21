@@ -1,0 +1,95 @@
+@use '../globals' as g;
+@use '../util/' as u;
+
+.footer {
+    background-color: g.$black;
+    padding: 1rem;
+
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    
+    &__links {
+        text-align: center;
+        
+        &__item {
+            list-style-type: none;
+            color: g.$white;
+            padding: .5em 0em;
+            font-family: u.$alata;
+            cursor: pointer;
+            
+            position: relative;
+            &::after {
+                @include u.hover-underline();
+            }
+            
+            &:hover::after {
+                width: u.em(25);
+            }
+        }
+    }
+
+    .media {
+        display: flex;
+        justify-content: center;
+        gap: 1em;
+
+        li {
+            padding: .5em 0em;
+
+            position: relative;
+            &::after {
+                @include u.hover-underline();
+            }
+            
+            &:hover::after {
+                width: u.em(25);
+            }
+        }
+
+        li::marker {
+            content: "";
+        }
+    }
+
+    .copyright {
+        color: g.$dark-gray;
+    }
+    .attribution { 
+        color: g.$dark-gray; 
+        font-size: 11px; 
+        text-align: center; 
+    }
+    .attribution a { color: g.$white; }
+
+    @include u.breakpoint(large) {
+        padding: 1rem 5rem;
+        flex-direction: row;
+        justify-content: space-between;
+
+        div {
+            display: flex;
+            flex-direction: column;
+            justify-content: space-between;
+        }
+        
+        &__links {
+            display: flex;
+            gap: 1.5em;
+        }
+
+        .media, .copyright {
+            margin: 0 !important;
+        }
+
+        .media {
+            justify-content: flex-end;
+        }
+
+        .copyright {
+            margin-top: 1.5rem !important;
+            text-align: end;
+        }
+    }
+}

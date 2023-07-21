@@ -1,0 +1,45 @@
+@use "fonts" as f;
+@use "../globals/colors" as c;
+@use "functions" as func;
+
+@mixin backround-photo($url) {
+    background-image: $url;
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+}
+
+@mixin btn-styles() {
+    background-color: c.$white;
+        padding: .55em 2.5em;
+        border: 1px solid c.$black;
+        color: c.$black;
+        text-transform: uppercase;
+        font-family: f.$alata;
+        letter-spacing: func.em(5);
+}
+
+@mixin card-styles($url) {
+    @include backround-photo($url);
+    position: relative;
+}
+
+@mixin header-styles($color: c.$white, $f-weight: 300) {
+    color: $color;
+    font-family: f.$josefin;
+    font-weight: $f-weight;
+    text-transform: uppercase;
+    text-decoration: none;
+}
+
+@mixin hover-underline() {
+    content: "";
+    position: absolute;
+    bottom: 0;
+    left: 50%;
+    width: 0;
+    height: 2px;
+    background-color: c.$white;
+    transform: translateX(-50%);
+    transition: width 200ms ease; 
+}
